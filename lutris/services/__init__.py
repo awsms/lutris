@@ -14,6 +14,8 @@ from lutris.services.humblebundle import HumbleBundleService
 from lutris.services.itchio import ItchIoService
 from lutris.services.lutris import LutrisService
 from lutris.services.mame import MAMEService
+from lutris.services.origin import OriginService
+from lutris.services.pcsx2 import PCSX2Service
 from lutris.services.scummvm import SCUMMVM_CONFIG_FILE, ScummvmService
 from lutris.services.steam import SteamService
 from lutris.services.steamfamily import SteamFamilyService
@@ -23,6 +25,7 @@ from lutris.services.xdg import XDGService
 from lutris.util import system
 from lutris.util.dolphin.cache_reader import DOLPHIN_GAME_CACHE_FILE
 from lutris.util.linux import LINUX_SYSTEM
+from lutris.util.pcsx2.cache_reader import PCSX2_GAME_CACHE_FILE
 
 DEFAULT_SERVICES = ["gog", "egs", "ea_app", "ubisoft", "steam"]
 
@@ -53,6 +56,8 @@ def get_services():
         _services["scummvm"] = ScummvmService
     if os.environ.get("LUTRIS_SERVICE_ENABLED") == "1":
         _services["lutris"] = LutrisService
+    if system.path_exists(PCSX2_GAME_CACHE_FILE):
+        _services["pcsx2"] = PCSX2Service
     return _services
 
 
