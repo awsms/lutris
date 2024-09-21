@@ -6038,7 +6038,7 @@ msgstr "Démarre le jeu sur la carte donnée."
 #: lutris/runners/zdoom.py:48
 msgid "User-specified path where save files should be located."
 msgstr ""
-"Chemin spécifié par l’utilisateur où les fichiers enregistrés devraient se "
+"Chemin spécifié par l’utilisateur où les fichiers de sauvegarde devraient se "
 "situer."
 
 #: lutris/runners/zdoom.py:54
