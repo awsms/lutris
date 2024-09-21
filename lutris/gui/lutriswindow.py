@@ -176,6 +176,7 @@ class LutrisWindow(Gtk.ApplicationWindow, DialogLaunchUIDelegate, DialogInstallU
             "add-game": Action(self.on_add_game_button_clicked),
             "preferences": Action(self.on_preferences_activate),
             "about": Action(self.on_about_clicked),
+            "search": Action(self.on_search_activate, accel="<Primary>f"),
             "show-installed-only": Action(  # delete?
                 self.on_show_installed_state_change,
                 type="b",
@@ -1000,6 +1001,10 @@ class LutrisWindow(Gtk.ApplicationWindow, DialogLaunchUIDelegate, DialogInstallU
         action.set_state(value)
         self.set_show_installed_state(value.get_boolean())
         self.update_store()
+
+    def on_search_activate(self, *args):
+        """Callback to activate the search entry."""
+        self.search_entry.grab_focus()
 
     @GtkTemplate.Callback
     def on_search_entry_changed(self, entry):
