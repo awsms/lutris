@@ -1090,8 +1090,6 @@ class wine(Runner):
         ]
 
         managers = {}
-        is_proton = proton.is_proton_path(self.get_executable())
-
         for manager_class, enabled_option, version_option in manager_classes:
             enabled = bool(self.runner_config.get(enabled_option))
             version = self.runner_config.get(version_option)
@@ -1100,12 +1098,10 @@ class wine(Runner):
 
                 if not manager.can_enable():
                     enabled = False
+                    if enabled_only:
+                        continue
 
-                if not manager.proton_compatible and is_proton:
-                    enabled = False
-
-                if enabled or not enabled_only:
-                    managers[manager] = enabled
+                managers[manager] = enabled
 
         return managers
 
