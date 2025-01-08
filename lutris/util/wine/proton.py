@@ -172,14 +172,7 @@ def update_proton_env(wine_path: str, env: Dict[str, str], game_id: str = DEFAUL
         env["WINEARCH"] = "win64"
 
     if "PROTON_VERB" not in env:
-        # Proton fixes are only applied with waitforexitandrun, so we want to use that
-        # but only if we're the first process start - the next concurrent process should
-        # use run so it does not wait.
-        prefix = env.get("WINEPREFIX")
-        if prefix and prefix in (c.env.get("WINEPREFIX") for c in RUNNING_COMMANDS):
-            env["PROTON_VERB"] = "run"
-        else:
-            env["PROTON_VERB"] = "waitforexitandrun"
+        env["PROTON_VERB"] = "runinprefix"
 
     locale = env.get("LC_ALL")
     host_locale = env.get("HOST_LC_ALL")
