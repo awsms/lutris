@@ -1,5 +1,8 @@
+"""Reads the PCSX2 game database, stored in a binary format"""
+
 import os
 import struct
+
 from lutris.util.log import logger
 
 PCSX2_GAME_CACHE_FILE = os.path.expanduser("~/.config/PCSX2/cache/gamelist.cache")

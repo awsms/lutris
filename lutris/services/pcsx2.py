@@ -2,8 +2,6 @@ import json
 import os
 from gettext import gettext as _
 
-from PIL import Image
-
 from lutris import settings
 from lutris.services.base import BaseService
 from lutris.services.service_game import ServiceGame
@@ -95,7 +93,7 @@ class PCSX2Game(ServiceGame):
         service_game.cover = service_game.get_cover(cache_entry)
         service_game.details = json.dumps({
             "path": cache_entry["path"],
-            "appid": service_game.appid 
+            "appid": service_game.appid
         })
         return service_game
 

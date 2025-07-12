@@ -14,7 +14,6 @@ from lutris.services.humblebundle import HumbleBundleService
 from lutris.services.itchio import ItchIoService
 from lutris.services.lutris import LutrisService
 from lutris.services.mame import MAMEService
-from lutris.services.origin import OriginService
 from lutris.services.pcsx2 import PCSX2Service
 from lutris.services.scummvm import SCUMMVM_CONFIG_FILE, ScummvmService
 from lutris.services.steam import SteamService
